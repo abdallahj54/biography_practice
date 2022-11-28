@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Author {
 
     /**
@@ -6,30 +9,32 @@ public class Author {
      Define Author class fields as firstName, lastName, country, isAlive, age, list of books
      */
 
+    //Default Constructor
+    public Author(){}
     //Create 6 args custom constructor here
-    public Author(String firstName, String lastName, String country, String isAlive, int age, Book listOfBooks) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public Author(String firstName, String lastName, String country, boolean isAlive, int age, List<Book> listOfBooks) {
+        Author.firstName = firstName;
+        Author.lastName = lastName;
         this.country = country;
         this.isAlive = isAlive;
         this.age = age;
         this.listOfBooks = listOfBooks;
     }
 
-    /*
-        Define instance variables here
-        NOTE: Books must be defined as a List of Objects of Book class not String
-    */
-    String firstName;
-    String lastName;
-    String country;
-    String isAlive;
-    int age;
-    Book listOfBooks;
+    /**
+     Define instance variables here
+     NOTE: Books must be defined as a List of Objects of Book class not String
+     */
+    public static String firstName;
+    public static String lastName;
+    public String country;
+    public boolean isAlive;
+    public int age;
+    public List<Book> listOfBooks = new ArrayList<>();
 
 
-    /*
-    Override toString() method here that returns Author object information
+    /**
+     Override toString() method here that returns Author object information
      */
     @Override
     public String toString() {
@@ -37,9 +42,8 @@ public class Author {
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", country='" + country + '\'' +
-                ", isAlive='" + isAlive + '\'' +
-                ", age=" + age +
-                ", listOfBooks=" + listOfBooks +
+                ", isAlive=" + isAlive +
+                (isAlive ? ", age=" + age : "") +
                 '}';
     }
 }
